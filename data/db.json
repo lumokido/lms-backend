@@ -1,0 +1,120 @@
+{
+  "users": [
+    {
+      "id": "usr-admin-1",
+      "email": "admin@lumokido.com",
+      "passwordHash": "$2b$10$qfvp2T34yQyEVcI2Gp0i/urrBC9qUcTzWrDVekJaaH4hhFl0ESK7O",
+      "name": "Admin Lumokido",
+      "role": "admin",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
+    }
+  ],
+  "blogs": [
+    {
+      "title": "https://github.com/lumokido/lms-backend.git",
+      "slug": "https-github-com-lumokido-lms-backend-git",
+      "excerpt": "https://github.com/lumokido/lms-backend.githttps://github.com/lumokido/lms-backend.githttps://github.com/lumokido/lms-backend.githttps://github.com/lumokido/lms-backend.githttps://github.com/lumokido/lms-backend.git",
+      "content": "https://github.com/lumokido/lms-backend.githttps://github.com/lumokido/lms-backend.githttps://github.com/lumokido/lms-backend.githttps://github.com/lumokido/lms-backend.githttps://github.com/lumokido/lms-backend.git",
+      "author": "Dr. Sarah Jenkins",
+      "authorAvatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+      "category": "Development",
+      "readTime": "https://github.com/lumokido/lms-backend.git",
+      "publishedAt": "Sep 18, 2026",
+      "status": "published",
+      "coverImage": "https://github.com/lumokido/lms-backend.git",
+      "id": "blog-1789722937551",
+      "views": 5,
+      "createdAt": "2026-09-18T09:15:37.551Z",
+      "updatedAt": "2026-09-18T09:15:37.551Z"
+    },
+    {
+      "id": "blog-1",
+      "title": "Modern Web Architecture with React 19 and Next.js",
+      "slug": "modern-web-architecture-react-19",
+      "excerpt": "Explore the revolutionary Server Actions, compiler optimizations, and performance patterns that define the state of frontend engineering in 2026.",
+      "content": "React 19 introduces transformative architectural paradigms for building resilient, high-performance web applications.\n\n### 1. The React Compiler & Zero-Memoization\nFor years, frontend developers struggled with manually maintaining memoization boundaries via `useMemo`, `useCallback`, and `React.memo`. The new React Compiler automates fine-grained reactivity, allowing code to be written naturally as pure JavaScript without sacrificing rendering efficiency.\n\n### 2. Actions and Server Mutations\nBy elevating transitions and server functions to first-class citizens, forms and optimistic UI updates no longer require sprawling Redux or state machine boilerplate:\n```tsx\nconst [isPending, startTransition] = useTransition();\n\nconst handleUpdate = async () => {\n  startTransition(async () => {\n    await updateProfile(formData);\n  });\n};\n```\n\n### 3. Native Asset Preloading & Resource Hints\nDocument metadata, stylesheets, async scripts, and preloaded fonts can now be declared inline within modular components. React manages DOM deduplication and streaming ordering automatically.\n\nEmbracing these primitives allows engineering teams to construct lean, maintainable, and blistering-fast applications.",
+      "author": "Dr. Sarah Jenkins",
+      "authorAvatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+      "category": "Development",
+      "readTime": "6 min read",
+      "publishedAt": "May 12, 2026",
+      "status": "published",
+      "views": 1420,
+      "coverImage": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&auto=format&fit=crop&q=80",
+      "createdAt": "2026-09-18T08:56:24.353Z",
+      "updatedAt": "2026-09-18T08:56:24.354Z"
+    },
+    {
+      "id": "blog-2",
+      "title": "Distributed Systems & Microservices in Node.js",
+      "slug": "distributed-systems-microservices-nodejs",
+      "excerpt": "A pragmatic guide to message brokers, idempotent consumers, resilient RPC boundaries, and distributed tracing in production Node services.",
+      "content": "Building microservices at scale requires defensive design, clear bounded contexts, and rock-solid event-driven pipelines.\n\n### Resilient RPC and Timeout Budgets\nEvery inter-service network call is an opportunity for cascade failure. Establishing strict deadline propagation across HTTP/2 or gRPC transports prevents worker thread starvation during upstream outages.\n\n### Eventual Consistency & Outbox Pattern\nDirect database writes paired with loose broker publishing invariably lead to dual-write anomalies. By leveraging the Transactional Outbox pattern, services guarantee that database changes and domain events commit atomically.\n\n### Distributed Observability\nAdopting OpenTelemetry allows correlation IDs to trace user requests through API gateways, authentication providers, and asynchronous task queues seamlessly.",
+      "author": "Marcus Aurelius",
+      "authorAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+      "category": "Data & AI",
+      "readTime": "9 min read",
+      "publishedAt": "May 10, 2026",
+      "status": "published",
+      "views": 2190,
+      "coverImage": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop&q=80",
+      "createdAt": "2026-09-18T08:56:24.354Z",
+      "updatedAt": "2026-09-18T08:56:24.354Z"
+    },
+    {
+      "id": "blog-3",
+      "title": "Design Systems for High Velocity Product Teams",
+      "slug": "design-systems-high-velocity",
+      "excerpt": "Standardizing typography, design tokens, color ramps, and accessible interactive components across web and native platforms.",
+      "content": "A truly successful design system is not just a Figma UI kit—it is an shared language linking designers and engineers.\n\n### Tokens as the Single Source of Truth\nCentralizing spacing scales, semantic color roles, and elevation curves into platform-agnostic JSON tokens enables continuous translation into CSS custom properties, Tailwind themes, and iOS/Android styles.\n\n### Accessibility by Default\nEvery interactive primitive must fulfill WCAG AAA contrast standards, provide clear keyboard focus indicators, and handle ARIA announcements gracefully for assistive technologies.",
+      "author": "Elena Rostova",
+      "authorAvatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "category": "Design",
+      "readTime": "5 min read",
+      "publishedAt": "May 08, 2026",
+      "status": "published",
+      "views": 980,
+      "coverImage": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=1200&auto=format&fit=crop&q=80",
+      "createdAt": "2026-09-18T08:56:24.354Z",
+      "updatedAt": "2026-09-18T08:56:24.354Z"
+    }
+  ],
+  "comments": [
+    {
+      "id": "comm-1",
+      "blogId": "blog-1",
+      "authorName": "Alex Mercer",
+      "authorEmail": "alex.m@example.com",
+      "authorAvatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80",
+      "content": "The React 19 compiler section is spot on! We migrated our LMS dashboards and eliminated hundreds of lines of useMemo clutter.",
+      "createdAt": "2026-09-17T08:56:24.354Z"
+    },
+    {
+      "id": "comm-2",
+      "blogId": "blog-1",
+      "authorName": "Sophia Lin",
+      "authorEmail": "sophia@example.com",
+      "authorAvatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+      "content": "Great overview. Would love to see a follow-up article discussing Server Actions with streaming responses in Next.js App Router!",
+      "createdAt": "2026-09-18T02:56:24.354Z"
+    },
+    {
+      "id": "comm-3",
+      "blogId": "blog-2",
+      "authorName": "David Chen",
+      "authorEmail": "david@tech.io",
+      "authorAvatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=150&auto=format&fit=crop&q=80",
+      "content": "The transactional outbox pattern saved our analytics ingestion pipeline from silent message loss. Essential reading for backend devs.",
+      "createdAt": "2026-09-17T20:56:24.354Z"
+    },
+    {
+      "blogId": "blog-1",
+      "authorName": "Maya Lin",
+      "authorEmail": "maya@example.com",
+      "authorAvatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "content": "This is a test comment from reader!",
+      "id": "comm-1789721901918",
+      "createdAt": "2026-09-18T08:58:21.918Z"
+    }
+  ]
+}
