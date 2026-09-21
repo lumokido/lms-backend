@@ -9,7 +9,10 @@ export const JWT_SECRET = 'lumokido_secret_key_2026_super_secure_jwt';
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(private readonly db: DatabaseService) {
     super({
-      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      jwtFromRequest: ExtractJwt.fromExtractors([
+        ExtractJwt.fromAuthHeaderAsBearerToken(),
+        ExtractJwt.fromUrlQueryParameter('token'),
+      ]),
       ignoreExpiration: false,
       secretOrKey: JWT_SECRET,
     });

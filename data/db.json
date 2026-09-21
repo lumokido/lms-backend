@@ -7,6 +7,30 @@
       "name": "Admin Lumokido",
       "role": "admin",
       "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "usr-1789939214224-115",
+      "email": "rahul.test@logtolearn.in",
+      "passwordHash": "$2b$10$X1cA36YrCF1q2It7fY8LJOvn66LTryxLn6AFjWwRsEfToacS88K2a",
+      "name": "Rahul.test",
+      "role": "user",
+      "avatar": "https://ui-avatars.com/api/?name=rahul.test&background=0284c7&color=fff"
+    },
+    {
+      "id": "usr-1789955904679-500",
+      "email": "priya.student@logtolearn.in",
+      "passwordHash": "$2b$10$FKbPPfQbmYSHq5xlUN2lGuz4qXp1OhspI94p.cfzBGw.nOCP5rwsq",
+      "name": "Priya.student",
+      "role": "user",
+      "avatar": "https://ui-avatars.com/api/?name=priya.student&background=0284c7&color=fff"
+    },
+    {
+      "id": "usr-1789958094848-247",
+      "email": "anasmohamad369@gmail.com",
+      "passwordHash": "$2b$10$HbzCFazlxJ2UsmLViqkKC.hAFdth97O2YJe562snf5bXRSTcpbJWK",
+      "name": "Anasmohamad369",
+      "role": "user",
+      "avatar": "https://ui-avatars.com/api/?name=anasmohamad369&background=0284c7&color=fff"
     }
   ],
   "blogs": [
@@ -39,7 +63,7 @@
       "readTime": "6 min read",
       "publishedAt": "May 12, 2026",
       "status": "published",
-      "views": 1420,
+      "views": 1434,
       "coverImage": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&auto=format&fit=crop&q=80",
       "createdAt": "2026-09-18T08:56:24.353Z",
       "updatedAt": "2026-09-18T08:56:24.354Z"
@@ -115,6 +139,314 @@
       "content": "This is a test comment from reader!",
       "id": "comm-1789721901918",
       "createdAt": "2026-09-18T08:58:21.918Z"
+    },
+    {
+      "blogId": "blog-1",
+      "authorName": "Antigravity Tester",
+      "authorEmail": "test@envibytes.com",
+      "authorAvatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "content": "Verifying live comment submission from student portal.",
+      "id": "comm-1789879142326",
+      "createdAt": "2026-09-20T04:39:02.326Z"
+    },
+    {
+      "blogId": "blog-1",
+      "authorName": "Verification Learner",
+      "authorEmail": "verify@envibytes.com",
+      "authorAvatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=150&auto=format&fit=crop&q=80",
+      "content": "Automated end-to-end test verifying live comment storage.",
+      "id": "comm-1789879531133",
+      "createdAt": "2026-09-20T04:45:31.133Z"
+    }
+  ],
+  "books": [
+    {
+      "title": "LOG 2 LEARN PROJECT",
+      "author": "Anas Mohamad",
+      "category": "Development",
+      "subject": "Computer",
+      "course": "BTECH",
+      "price": 1000,
+      "discountPrice": 2000,
+      "format": "PDF",
+      "pages": 120,
+      "language": "English",
+      "fileSize": "1.4 MB",
+      "r2StorageKey": "documents/1789959105947-LOG_2_LEARN_PROJECT.pdf",
+      "coverImage": "https://483f618934fbaf1d31dbf113fbcf386d.r2.cloudflarestorage.com/books/covers/1789959166388-movement.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=fe86b4a1c74fdb8a7407d9a44bacb4a2%2F20260921%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260921T025247Z&X-Amz-Expires=604800&X-Amz-Signature=5af9d5daede408608baf0c419b74c62d5313d19daecf73151891ed88fe140cc1&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "description": "Enter the 6-digit verification code below to access your purchased books and reading dashboard.\n\nEnter the 6-digit verification code below to access your purchased books and reading dashboard.",
+      "publicationInfo": "Enter the 6-digit verification code below to access your purchased books and reading dashboard.",
+      "previewSettings": {
+        "allowPreview": true,
+        "previewPagesCount": 3
+      },
+      "status": "published",
+      "purchasesDisabled": false,
+      "id": "book-1789959179833",
+      "downloads": 0,
+      "createdAt": "2026-09-21T02:52:59.833Z",
+      "updatedAt": "2026-09-21T02:52:59.833Z"
+    },
+    {
+      "title": "ARK Guard Engineering Console   DFMHUB   DFMHUB",
+      "author": "ANAS",
+      "category": "Development",
+      "price": 2000,
+      "format": "PDF",
+      "pages": 120,
+      "fileSize": "96 KB",
+      "r2StorageKey": "documents/1789840171074-ARK-Guard_Engineering_Console___DFMHUB___DFMHUB.pdf",
+      "coverImage": "https://483f618934fbaf1d31dbf113fbcf386d.r2.cloudflarestorage.com/books/covers/1789840208663-8mm-Aluminium-round-conductor.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=fe86b4a1c74fdb8a7407d9a44bacb4a2%2F20260919%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260919T175009Z&X-Amz-Expires=604800&X-Amz-Signature=091e2c21e341b4b5ccdc1249e8263ce83af3639ab6958be3908135bccb9bc7e4&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "description": "The terminal should be coordinated on the structural and MEP drawings, with a unique reference where the handover plan requires one. The installer must protect accessible faces during concreting and confirm the concealed connection before the pour. After de-shuttering, the terminal should be cleaned, identified and included in continuity testing.",
+      "status": "published",
+      "id": "book-1789840219624",
+      "downloads": 2,
+      "createdAt": "2026-09-19T17:50:19.624Z",
+      "updatedAt": "2026-09-21T02:33:47.815Z"
+    },
+    {
+      "title": "Distributed Systems & Cloud Architecture Manual",
+      "author": "Dr. Sarah Jenkins",
+      "category": "Development",
+      "price": 999,
+      "discountPrice": 1499,
+      "format": "PDF",
+      "pages": 250,
+      "language": "English",
+      "subtitle": "Complete Engineering & System Design Guide",
+      "publicationInfo": "First Edition 2026 • LOG TO LEARN Academic Press",
+      "fileSize": "14.5 MB",
+      "r2StorageKey": "documents/1789840095734-Sample_Distributed_Systems.pdf",
+      "description": "Comprehensive guide to modern distributed systems, resilient microservices, and high-scale architecture.",
+      "status": "published",
+      "id": "book-1789840096678",
+      "downloads": 1,
+      "createdAt": "2026-09-19T17:48:16.678Z",
+      "updatedAt": "2026-09-21T01:58:14.778Z"
+    }
+  ],
+  "purchases": [
+    {
+      "orderId": "LTL-BOOK-2026-026601",
+      "userEmail": "anasmohamad369@gmail.com",
+      "userName": "Anas Mohamad",
+      "bookId": "book-1789840219624",
+      "amount": 2000,
+      "paymentId": "PAY-1789958027207-2588",
+      "paymentStatus": "SUCCESS",
+      "accessStatus": "ACTIVE",
+      "id": "pur-1789958026602-1693",
+      "purchasedAt": "2026-09-21T02:33:46.602Z",
+      "updatedAt": "2026-09-21T02:33:47.814Z",
+      "userId": "usr-1789958094848-247"
+    },
+    {
+      "orderId": "LTL-BOOK-2026-873244",
+      "userEmail": "priya.student@logtolearn.in",
+      "userName": "Priya Sharma",
+      "bookId": "book-1789840096678",
+      "amount": 999,
+      "paymentId": "PAY-1789840999000",
+      "paymentStatus": "SUCCESS",
+      "accessStatus": "ACTIVE",
+      "id": "pur-1789955873244-9010",
+      "purchasedAt": "2026-09-21T01:57:53.244Z",
+      "updatedAt": "2026-09-21T02:01:48.663Z",
+      "userId": "usr-1789955904679-500"
+    },
+    {
+      "orderId": "LTL-BOOK-2026-862527",
+      "userEmail": "rahul.test@logtolearn.in",
+      "userName": "Rahul Verma",
+      "bookId": "book-1789840219624",
+      "amount": 2000,
+      "paymentId": "PAY_TEST_998877",
+      "paymentStatus": "REFUNDED",
+      "accessStatus": "ACTIVE",
+      "id": "pur-1789920862527-2226",
+      "purchasedAt": "2026-09-20T16:14:22.527Z",
+      "updatedAt": "2026-09-21T01:55:03.762Z",
+      "userId": "usr-1789939214224-115"
+    }
+  ],
+  "payments": [
+    {
+      "orderId": "LTL-BOOK-2026-026601",
+      "purchaseId": "pur-1789958026602-1693",
+      "amount": 2000,
+      "currency": "INR",
+      "gateway": "secure_gateway",
+      "signature": "sig_verified",
+      "status": "SUCCESS",
+      "payload": {
+        "paymentId": "PAY-1789958027207-2588",
+        "verifiedAt": "2026-09-21T02:33:47.813Z"
+      },
+      "id": "pay-1789958027813-2774",
+      "createdAt": "2026-09-21T02:33:47.813Z"
+    },
+    {
+      "orderId": "LTL-BOOK-2026-873244",
+      "purchaseId": "pur-1789955873244-9010",
+      "amount": 999,
+      "currency": "INR",
+      "gateway": "secure_gateway",
+      "signature": "simulated_sig_ok",
+      "status": "SUCCESS",
+      "payload": {
+        "paymentId": "PAY-1789840999000",
+        "verifiedAt": "2026-09-21T01:58:14.776Z"
+      },
+      "id": "pay-1789955894776-6147",
+      "createdAt": "2026-09-21T01:58:14.776Z"
+    },
+    {
+      "orderId": "LTL-BOOK-2026-862527",
+      "purchaseId": "pur-1789920862527-2226",
+      "amount": 2000,
+      "currency": "INR",
+      "gateway": "secure_gateway",
+      "status": "SUCCESS",
+      "payload": {
+        "paymentId": "PAY_TEST_998877",
+        "verifiedAt": "2026-09-20T21:19:34.460Z"
+      },
+      "id": "pay-1789939174460-2925",
+      "createdAt": "2026-09-20T21:19:34.460Z"
+    }
+  ],
+  "otps": [
+    {
+      "id": "otp-1789962049863-5371",
+      "email": "anasmohamad369@gmail.com",
+      "hashedOtp": "$2b$10$QO4mGVCoQV5/M2X6nrFveOenAamuGAIDuyrDg.Balrq.luPJRNAFy",
+      "expiresAt": "2026-09-21T03:50:49.863Z",
+      "attempts": 1,
+      "verified": true,
+      "purpose": "BOOK_ACCESS",
+      "createdAt": "2026-09-21T03:40:49.863Z"
+    },
+    {
+      "id": "otp-1789961994275-6154",
+      "email": "anasmohamad369@gmail.com",
+      "hashedOtp": "$2b$10$VK8lKdZVfi1VPRC2xrygz.6Y9vRD6Q1sln77gyct0.V4QYlBlq0Wy",
+      "expiresAt": "2026-09-21T03:49:54.275Z",
+      "attempts": 0,
+      "verified": true,
+      "purpose": "BOOK_ACCESS",
+      "createdAt": "2026-09-21T03:39:54.275Z"
+    },
+    {
+      "id": "otp-1789961925643-1812",
+      "email": "anasmohamad369@gmail.com",
+      "hashedOtp": "$2b$10$1N9uKba5dakiJELsluCzHeHZemMJu8r76gDsPynXkdxd0vn.7uZwW",
+      "expiresAt": "2026-09-21T03:48:45.643Z",
+      "attempts": 0,
+      "verified": true,
+      "purpose": "BOOK_ACCESS",
+      "createdAt": "2026-09-21T03:38:45.643Z"
+    },
+    {
+      "id": "otp-1789959205478-7096",
+      "email": "anasmohamad369@gmail.com",
+      "hashedOtp": "$2b$10$VprvVWJ6eqdmBcF.wikzNeGriyM9OndgrE4aPeG04j.WHdSraS7lm",
+      "expiresAt": "2026-09-21T03:40:48.863Z",
+      "attempts": 0,
+      "verified": false,
+      "purpose": "BOOK_ACCESS",
+      "createdAt": "2026-09-21T02:53:25.478Z"
+    },
+    {
+      "id": "otp-1789958186001-6562",
+      "email": "anasmohamad369@gmail.com",
+      "hashedOtp": "$2b$10$5OkNBCJsuP0Hq759tVpJZOOu9U/HyL3N/095yhCxd3GIxFNxo4nAq",
+      "expiresAt": "2026-09-21T02:46:26.001Z",
+      "attempts": 0,
+      "verified": true,
+      "purpose": "BOOK_ACCESS",
+      "createdAt": "2026-09-21T02:36:26.001Z"
+    },
+    {
+      "id": "otp-1789958067384-4595",
+      "email": "anasmohamad369@gmail.com",
+      "hashedOtp": "$2b$10$LYpiP2IMD5JKbo8jukPOiuwNPlCLr8WyNNmIT3UUNsmKiNQezu4eK",
+      "expiresAt": "2026-09-21T02:44:27.385Z",
+      "attempts": 0,
+      "verified": true,
+      "purpose": "BOOK_ACCESS",
+      "createdAt": "2026-09-21T02:34:27.385Z"
+    },
+    {
+      "id": "otp-1789958034026-6813",
+      "email": "anasmohamad369@gmail.com",
+      "hashedOtp": "$2b$10$kJr5LUI/Zxvz4F8ccYe4outpFuy74IevHP8HtQ2teFLK2bgaGlg/S",
+      "expiresAt": "2026-09-21T03:40:48.863Z",
+      "attempts": 0,
+      "verified": false,
+      "purpose": "BOOK_ACCESS",
+      "createdAt": "2026-09-21T02:33:54.026Z"
+    },
+    {
+      "id": "otp-1789957951659-5759",
+      "email": "test.verify@logtolearn.in",
+      "hashedOtp": "$2b$10$YdMJLgCA2ZJgveXY81xV9egR/2HyK6HWT8aaknRf4u7c2vueHQgIK",
+      "expiresAt": "2026-09-21T02:42:31.659Z",
+      "attempts": 0,
+      "verified": false,
+      "purpose": "BOOK_ACCESS",
+      "createdAt": "2026-09-21T02:32:31.659Z"
+    },
+    {
+      "id": "otp-1789955897708-8563",
+      "email": "priya.student@logtolearn.in",
+      "hashedOtp": "$2b$10$Ig9pZcerb/59j8AGZ0x7Jenq2Cxp2ffGy2ozAVx.x/BtpdOeSS5Xe",
+      "expiresAt": "2026-09-21T02:08:17.708Z",
+      "attempts": 0,
+      "verified": true,
+      "purpose": "BOOK_ACCESS",
+      "createdAt": "2026-09-21T01:58:17.708Z"
+    },
+    {
+      "id": "otp-1789939200683-3406",
+      "email": "rahul.test@logtolearn.in",
+      "hashedOtp": "$2b$10$f3CrEkIK/VMUeld5UyBunO8GMlVH7eSSD0iiYkTO3fX.2VEPa6FRS",
+      "expiresAt": "2026-09-20T21:30:00.683Z",
+      "attempts": 0,
+      "verified": true,
+      "purpose": "BOOK_ACCESS",
+      "createdAt": "2026-09-20T21:20:00.683Z"
+    }
+  ],
+  "emailVerifications": [
+    {
+      "id": "ev-1789958027816-7006",
+      "email": "anasmohamad369@gmail.com",
+      "token": "d6629074ca1706e6095f40f64779489bfb17553e8a7fd0a3d7dbb64cf8b975e5",
+      "orderId": "LTL-BOOK-2026-026601",
+      "bookId": "book-1789840219624",
+      "expiresAt": "2026-09-28T02:33:47.816Z",
+      "verified": false,
+      "createdAt": "2026-09-21T02:33:47.816Z"
+    },
+    {
+      "id": "ev-1789955894779-1784",
+      "email": "priya.student@logtolearn.in",
+      "token": "b5765086b2a1b010caba29e8223a135086bd724b5ee01f0d13db50f778813ae0",
+      "orderId": "LTL-BOOK-2026-873244",
+      "bookId": "book-1789840096678",
+      "expiresAt": "2026-09-28T01:58:14.779Z",
+      "verified": false,
+      "createdAt": "2026-09-21T01:58:14.779Z"
+    },
+    {
+      "id": "ev-1789939174466-8725",
+      "email": "rahul.test@logtolearn.in",
+      "token": "6244df8ca891a776565565b46b43faf7c27a33859b60c5884e42dc85a7a941dd",
+      "orderId": "LTL-BOOK-2026-862527",
+      "bookId": "book-1789840219624",
+      "expiresAt": "2026-09-27T21:19:34.466Z",
+      "verified": true,
+      "createdAt": "2026-09-20T21:19:34.466Z"
     }
   ]
 }

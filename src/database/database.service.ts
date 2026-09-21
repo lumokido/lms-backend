@@ -40,10 +40,101 @@ export interface Comment {
   createdAt: string;
 }
 
+export interface Book {
+  id: string;
+  title: string;
+  subtitle?: string;
+  author: string;
+  category: string;
+  subject?: string;
+  course?: string;
+  price: number;
+  discountPrice?: number;
+  format: 'PDF' | 'EPUB';
+  pages: number;
+  language?: string;
+  fileSize: string;
+  r2StorageKey: string;
+  coverImage?: string;
+  description: string;
+  publicationInfo?: string;
+  previewSettings?: {
+    allowPreview?: boolean;
+    previewPagesCount?: number;
+  };
+  status: 'published' | 'draft';
+  purchasesDisabled?: boolean;
+  downloads: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export type PaymentStatus = 'PENDING' | 'SUCCESS' | 'FAILED' | 'REFUNDED';
+export type AccessStatus = 'ACTIVE' | 'REVOKED' | 'EXPIRED';
+
+export interface Purchase {
+  id: string;
+  orderId: string;
+  userId?: string;
+  userEmail: string;
+  userName?: string;
+  bookId: string;
+  amount: number;
+  paymentId: string;
+  paymentStatus: PaymentStatus;
+  accessStatus: AccessStatus;
+  purchasedAt: string;
+  updatedAt: string;
+}
+
+export interface PaymentRecord {
+  id: string;
+  orderId: string;
+  purchaseId: string;
+  amount: number;
+  currency: string;
+  gateway: string;
+  signature?: string;
+  status: PaymentStatus;
+  payload?: any;
+  createdAt: string;
+}
+
+export interface OtpRecord {
+  id: string;
+  email: string;
+  hashedOtp: string;
+  expiresAt: string;
+  attempts: number;
+  verified: boolean;
+  purpose: 'BOOK_ACCESS' | 'LOGIN';
+  createdAt: string;
+}
+
+export interface EmailVerificationRecord {
+  id: string;
+  email: string;
+  token: string;
+  orderId: string;
+  bookId: string;
+  expiresAt: string;
+  verified: boolean;
+  createdAt: string;
+}
+
+// Retain BookPurchase type alias for backwards-compatibility
+export type BookPurchase = Purchase;
+
 interface DatabaseSchema {
   users: User[];
   blogs: Blog[];
   comments: Comment[];
+  books: Book[];
+  purchases: Purchase[];
+  payments: PaymentRecord[];
+  otps: OtpRecord[];
+  emailVerifications: EmailVerificationRecord[];
+  bookPurchases?: BookPurchase[];
 }
 
 @Injectable()
@@ -53,6 +144,11 @@ export class DatabaseService implements OnModuleInit {
     users: [],
     blogs: [],
     comments: [],
+    books: [],
+    purchases: [],
+    payments: [],
+    otps: [],
+    emailVerifications: [],
   };
 
   async onModuleInit() {
@@ -72,6 +168,25 @@ export class DatabaseService implements OnModuleInit {
         if (!this.data.users) this.data.users = [];
         if (!this.data.blogs) this.data.blogs = [];
         if (!this.data.comments) this.data.comments = [];
+        if (!this.data.books) this.data.books = [];
+        if (!this.data.purchases) {
+          this.data.purchases = ((this.data as any).bookPurchases || []).map((bp: any) => ({
+            id: bp.id,
+            orderId: bp.orderId || `LTL-BOOK-${bp.id}`,
+            userId: bp.userId,
+            userEmail: bp.userEmail,
+            bookId: bp.bookId,
+            amount: bp.amount || 0,
+            paymentId: bp.transactionId || bp.paymentId || `pay-${bp.id}`,
+            paymentStatus: bp.status === 'completed' ? 'SUCCESS' : bp.status === 'refunded' ? 'REFUNDED' : 'PENDING',
+            accessStatus: bp.status === 'completed' ? 'ACTIVE' : 'REVOKED',
+            purchasedAt: bp.purchasedAt || new Date().toISOString(),
+            updatedAt: bp.purchasedAt || new Date().toISOString(),
+          }));
+        }
+        if (!this.data.payments) this.data.payments = [];
+        if (!this.data.otps) this.data.otps = [];
+        if (!this.data.emailVerifications) this.data.emailVerifications = [];
         return;
       } catch (err) {
         console.error('Error reading db.json, re-initializing seeds:', err);
@@ -208,6 +323,11 @@ Every interactive primitive must fulfill WCAG AAA contrast standards, provide cl
           createdAt: new Date(Date.now() - 3600000 * 12).toISOString(),
         },
       ],
+      books: [],
+      purchases: [],
+      payments: [],
+      otps: [],
+      emailVerifications: [],
     };
     this.saveData();
   }
@@ -314,5 +434,268 @@ Every interactive primitive must fulfill WCAG AAA contrast standards, provide cl
       return true;
     }
     return false;
+  }
+
+  // --- Books ---
+  getAllBooks(params?: { status?: string; category?: string; search?: string }): Book[] {
+    let result = [...this.data.books];
+
+    if (params?.status) {
+      result = result.filter((b) => b.status === params.status);
+    }
+    if (params?.category && params.category !== 'All') {
+      result = result.filter(
+        (b) => b.category.toLowerCase() === params.category!.toLowerCase(),
+      );
+    }
+    if (params?.search) {
+      const q = params.search.toLowerCase();
+      result = result.filter(
+        (b) =>
+          b.title.toLowerCase().includes(q) ||
+          b.author.toLowerCase().includes(q) ||
+          b.description.toLowerCase().includes(q),
+      );
+    }
+
+    return result.sort(
+      (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+    );
+  }
+
+  findBookById(id: string): Book | undefined {
+    return this.data.books.find((b) => b.id === id);
+  }
+
+  createBook(bookData: Omit<Book, 'id' | 'createdAt' | 'updatedAt' | 'downloads'>): Book {
+    const newBook: Book = {
+      ...bookData,
+      id: `book-${Date.now()}`,
+      downloads: 0,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    };
+    this.data.books.unshift(newBook);
+    this.saveData();
+    return newBook;
+  }
+
+  updateBook(id: string, updates: Partial<Omit<Book, 'id' | 'createdAt'>>): Book | undefined {
+    const index = this.data.books.findIndex((b) => b.id === id);
+    if (index === -1) return undefined;
+
+    const existing = this.data.books[index];
+    const updated: Book = {
+      ...existing,
+      ...updates,
+      updatedAt: new Date().toISOString(),
+    };
+    this.data.books[index] = updated;
+    this.saveData();
+    return updated;
+  }
+
+  deleteBook(id: string): boolean {
+    const initialLen = this.data.books.length;
+    this.data.books = this.data.books.filter((b) => b.id !== id);
+    if (this.data.books.length !== initialLen) {
+      this.saveData();
+      return true;
+    }
+    return false;
+  }
+
+  // --- Book Purchases & Entitlements ---
+  createPurchase(purchaseData: Omit<Purchase, 'id' | 'purchasedAt' | 'updatedAt'>): Purchase {
+    const purchase: Purchase = {
+      ...purchaseData,
+      id: `pur-${Date.now()}-${Math.floor(1000 + Math.random() * 9000)}`,
+      purchasedAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    };
+    this.data.purchases.unshift(purchase);
+    this.saveData();
+    return purchase;
+  }
+
+  updatePurchase(idOrOrderId: string, updates: Partial<Purchase>): Purchase | undefined {
+    const index = this.data.purchases.findIndex(
+      (p) => p.id === idOrOrderId || p.orderId === idOrOrderId,
+    );
+    if (index === -1) return undefined;
+
+    const existing = this.data.purchases[index];
+    const updated: Purchase = {
+      ...existing,
+      ...updates,
+      updatedAt: new Date().toISOString(),
+    };
+    this.data.purchases[index] = updated;
+    this.saveData();
+    return updated;
+  }
+
+  findPurchaseById(id: string): Purchase | undefined {
+    return this.data.purchases.find((p) => p.id === id);
+  }
+
+  findPurchaseByOrderId(orderId: string): Purchase | undefined {
+    return this.data.purchases.find((p) => p.orderId === orderId);
+  }
+
+  getAllPurchases(filter?: { bookId?: string; status?: PaymentStatus; search?: string }): Purchase[] {
+    let list = [...this.data.purchases];
+    if (filter?.bookId) {
+      list = list.filter((p) => p.bookId === filter.bookId);
+    }
+    if (filter?.status) {
+      list = list.filter((p) => p.paymentStatus === filter.status);
+    }
+    if (filter?.search) {
+      const q = filter.search.toLowerCase();
+      list = list.filter(
+        (p) =>
+          p.orderId.toLowerCase().includes(q) ||
+          p.userEmail.toLowerCase().includes(q) ||
+          p.paymentId.toLowerCase().includes(q) ||
+          (p.userName && p.userName.toLowerCase().includes(q)),
+      );
+    }
+    return list.sort(
+      (a, b) => new Date(b.purchasedAt).getTime() - new Date(a.purchasedAt).getTime(),
+    );
+  }
+
+  hasUserPurchasedBook(userEmailOrId: string, bookId: string): boolean {
+    if (!userEmailOrId || !bookId) return false;
+    const lower = userEmailOrId.toLowerCase();
+    return this.data.purchases.some(
+      (p) =>
+        (p.userEmail.toLowerCase() === lower || p.userId === userEmailOrId) &&
+        p.bookId === bookId &&
+        p.paymentStatus === 'SUCCESS' &&
+        p.accessStatus === 'ACTIVE',
+    );
+  }
+
+  getUserPurchasedBooks(userEmailOrId: string): Book[] {
+    if (!userEmailOrId) return [];
+    const lower = userEmailOrId.toLowerCase();
+    const activePurchases = this.data.purchases.filter(
+      (p) =>
+        (p.userEmail.toLowerCase() === lower || p.userId === userEmailOrId) &&
+        p.paymentStatus === 'SUCCESS' &&
+        p.accessStatus === 'ACTIVE',
+    );
+    const bookIds = new Set(activePurchases.map((p) => p.bookId));
+    return this.data.books.filter((b) => bookIds.has(b.id));
+  }
+
+  // Backwards compatibility for previous endpoints
+  recordBookPurchase(purchaseData: any): Purchase {
+    return this.createPurchase({
+      orderId: purchaseData.orderId || `LTL-BOOK-${Date.now()}`,
+      userId: purchaseData.userId,
+      userEmail: purchaseData.userEmail,
+      userName: purchaseData.userName,
+      bookId: purchaseData.bookId,
+      amount: purchaseData.amount,
+      paymentId: purchaseData.transactionId || purchaseData.paymentId || `pay-${Date.now()}`,
+      paymentStatus: 'SUCCESS',
+      accessStatus: 'ACTIVE',
+    });
+  }
+
+  // --- Payments ---
+  recordPayment(paymentData: Omit<PaymentRecord, 'id' | 'createdAt'>): PaymentRecord {
+    const payment: PaymentRecord = {
+      ...paymentData,
+      id: `pay-${Date.now()}-${Math.floor(1000 + Math.random() * 9000)}`,
+      createdAt: new Date().toISOString(),
+    };
+    this.data.payments.unshift(payment);
+    this.saveData();
+    return payment;
+  }
+
+  // --- OTP Verification ---
+  createOtp(email: string, hashedOtp: string, purpose: 'BOOK_ACCESS' | 'LOGIN' = 'BOOK_ACCESS'): OtpRecord {
+    // Invalidate previous unverified OTPs for this email & purpose
+    this.data.otps
+      .filter((o) => o.email.toLowerCase() === email.toLowerCase() && o.purpose === purpose && !o.verified)
+      .forEach((o) => {
+        o.expiresAt = new Date(Date.now() - 1000).toISOString();
+      });
+
+    const otp: OtpRecord = {
+      id: `otp-${Date.now()}-${Math.floor(1000 + Math.random() * 9000)}`,
+      email: email.toLowerCase(),
+      hashedOtp,
+      expiresAt: new Date(Date.now() + 10 * 60 * 1000).toISOString(), // 10 minutes
+      attempts: 0,
+      verified: false,
+      purpose,
+      createdAt: new Date().toISOString(),
+    };
+    this.data.otps.unshift(otp);
+    this.saveData();
+    return otp;
+  }
+
+  findLatestOtp(email: string, purpose: 'BOOK_ACCESS' | 'LOGIN' = 'BOOK_ACCESS'): OtpRecord | undefined {
+    const lower = email.toLowerCase();
+    return this.data.otps.find(
+      (o) => o.email.toLowerCase() === lower && o.purpose === purpose && !o.verified,
+    );
+  }
+
+  incrementOtpAttempts(id: string): void {
+    const otp = this.data.otps.find((o) => o.id === id);
+    if (otp) {
+      otp.attempts += 1;
+      this.saveData();
+    }
+  }
+
+  markOtpVerified(id: string): void {
+    const otp = this.data.otps.find((o) => o.id === id);
+    if (otp) {
+      otp.verified = true;
+      this.saveData();
+    }
+  }
+
+  // --- Email Verification / Access Tokens ---
+  createEmailVerification(
+    email: string,
+    token: string,
+    orderId: string,
+    bookId: string,
+  ): EmailVerificationRecord {
+    const record: EmailVerificationRecord = {
+      id: `ev-${Date.now()}-${Math.floor(1000 + Math.random() * 9000)}`,
+      email: email.toLowerCase(),
+      token,
+      orderId,
+      bookId,
+      expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(), // 7 days
+      verified: false,
+      createdAt: new Date().toISOString(),
+    };
+    this.data.emailVerifications.unshift(record);
+    this.saveData();
+    return record;
+  }
+
+  findEmailVerification(token: string): EmailVerificationRecord | undefined {
+    return this.data.emailVerifications.find((ev) => ev.token === token);
+  }
+
+  markEmailVerificationUsed(token: string): void {
+    const ev = this.data.emailVerifications.find((item) => item.token === token);
+    if (ev) {
+      ev.verified = true;
+      this.saveData();
+    }
   }
 }
