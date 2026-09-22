@@ -351,6 +351,10 @@ Every interactive primitive must fulfill WCAG AAA contrast standards, provide cl
     return this.data.users.find((u) => u.id === id);
   }
 
+  listUsers(): Omit<User, 'passwordHash'>[] {
+    return this.data.users.map(({ passwordHash: _password, ...user }) => user);
+  }
+
   // --- Blogs ---
   getAllBlogs(): Blog[] {
     return [...this.data.blogs];

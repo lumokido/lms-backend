@@ -63,6 +63,12 @@ export class BooksController {
    * GET /student/books & GET /books/my-library
    */
   @UseGuards(JwtAuthGuard)
+  @Get('student/dashboard')
+  getStudentDashboard(@Request() req: any) {
+    return this.booksService.getStudentDashboard(req.user);
+  }
+
+  @UseGuards(JwtAuthGuard)
   @Get('student/books')
   getStudentBooks(@Request() req: any) {
     return this.booksService.getUserLibrary(req.user.id || req.user.email);
@@ -264,6 +270,16 @@ export class BooksController {
   // ==========================================
   // ADMIN PURCHASE & ACCESS MANAGEMENT ENDPOINTS
   // ==========================================
+
+  /**
+   * Live admin totals: books, students, buyers, and revenue.
+   * GET /admin/overview
+   */
+  @UseGuards(JwtAuthGuard, AdminGuard)
+  @Get('admin/overview')
+  getAdminOverview() {
+    return this.booksService.getAdminOverview();
+  }
 
   /**
    * List all book purchases with filtering & search (Admin only)

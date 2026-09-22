@@ -63,7 +63,7 @@
       "readTime": "6 min read",
       "publishedAt": "May 12, 2026",
       "status": "published",
-      "views": 1434,
+      "views": 1440,
       "coverImage": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&auto=format&fit=crop&q=80",
       "createdAt": "2026-09-18T08:56:24.353Z",
       "updatedAt": "2026-09-18T08:56:24.354Z"
@@ -157,9 +157,44 @@
       "content": "Automated end-to-end test verifying live comment storage.",
       "id": "comm-1789879531133",
       "createdAt": "2026-09-20T04:45:31.133Z"
+    },
+    {
+      "blogId": "blog-1",
+      "authorName": "Alex",
+      "authorEmail": "alex@learner.envibytes.com",
+      "authorAvatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80",
+      "content": "GREAT",
+      "id": "comm-1790099379238",
+      "createdAt": "2026-09-22T17:49:39.238Z"
     }
   ],
   "books": [
+    {
+      "title": "KEEP POLICY",
+      "subtitle": "div.sd-main",
+      "author": "Anas",
+      "category": "Development",
+      "subject": "main",
+      "course": "telugu",
+      "price": 2000,
+      "format": "PDF",
+      "pages": 1,
+      "language": "English",
+      "fileSize": "179 KB",
+      "r2StorageKey": "documents/1790099697152-Untitled_document.pdf",
+      "coverImage": "https://483f618934fbaf1d31dbf113fbcf386d.r2.cloudflarestorage.com/books/covers/1790099739873-Get_the_New_MacBook_Pro_M3_4K_Wallpapers_Now____TechRushi.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=fe86b4a1c74fdb8a7407d9a44bacb4a2%2F20260922%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260922T175540Z&X-Amz-Expires=604800&X-Amz-Signature=3d55410e6208d5a9f4ab636ea6f5a731dd0442e48c79c7ea941df47eeff51cea&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "description": "vdiv.sd-mainKEEP POLICYKEEP POLICYKEEP POLICYKEEP POLICY",
+      "previewSettings": {
+        "allowPreview": true,
+        "previewPagesCount": 3
+      },
+      "status": "published",
+      "purchasesDisabled": false,
+      "id": "book-1790099742210",
+      "downloads": 0,
+      "createdAt": "2026-09-22T17:55:42.210Z",
+      "updatedAt": "2026-09-22T17:56:07.915Z"
+    },
     {
       "title": "LOG 2 LEARN PROJECT",
       "author": "Anas Mohamad",
@@ -193,7 +228,7 @@
       "category": "Development",
       "price": 2000,
       "format": "PDF",
-      "pages": 120,
+      "pages": 2,
       "fileSize": "96 KB",
       "r2StorageKey": "documents/1789840171074-ARK-Guard_Engineering_Console___DFMHUB___DFMHUB.pdf",
       "coverImage": "https://483f618934fbaf1d31dbf113fbcf386d.r2.cloudflarestorage.com/books/covers/1789840208663-8mm-Aluminium-round-conductor.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=fe86b4a1c74fdb8a7407d9a44bacb4a2%2F20260919%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260919T175009Z&X-Amz-Expires=604800&X-Amz-Signature=091e2c21e341b4b5ccdc1249e8263ce83af3639ab6958be3908135bccb9bc7e4&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
@@ -317,6 +352,16 @@
   ],
   "otps": [
     {
+      "id": "otp-1790095825856-4131",
+      "email": "anasmohamad369@gmail.com",
+      "hashedOtp": "$2b$10$x9j6HpoP9NXpCtX87olb3.Q5ZpFI1sfUUXJdhoVFWZ/75Q4yEf/wG",
+      "expiresAt": "2026-09-22T17:00:25.856Z",
+      "attempts": 0,
+      "verified": true,
+      "purpose": "BOOK_ACCESS",
+      "createdAt": "2026-09-22T16:50:25.856Z"
+    },
+    {
       "id": "otp-1789962049863-5371",
       "email": "anasmohamad369@gmail.com",
       "hashedOtp": "$2b$10$QO4mGVCoQV5/M2X6nrFveOenAamuGAIDuyrDg.Balrq.luPJRNAFy",
@@ -350,7 +395,7 @@
       "id": "otp-1789959205478-7096",
       "email": "anasmohamad369@gmail.com",
       "hashedOtp": "$2b$10$VprvVWJ6eqdmBcF.wikzNeGriyM9OndgrE4aPeG04j.WHdSraS7lm",
-      "expiresAt": "2026-09-21T03:40:48.863Z",
+      "expiresAt": "2026-09-22T16:50:24.856Z",
       "attempts": 0,
       "verified": false,
       "purpose": "BOOK_ACCESS",
@@ -380,7 +425,7 @@
       "id": "otp-1789958034026-6813",
       "email": "anasmohamad369@gmail.com",
       "hashedOtp": "$2b$10$kJr5LUI/Zxvz4F8ccYe4outpFuy74IevHP8HtQ2teFLK2bgaGlg/S",
-      "expiresAt": "2026-09-21T03:40:48.863Z",
+      "expiresAt": "2026-09-22T16:50:24.856Z",
       "attempts": 0,
       "verified": false,
       "purpose": "BOOK_ACCESS",
